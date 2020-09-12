@@ -3,8 +3,7 @@ Examples anpassne
 Lib hochladen auf Arduino?!
 Methoden dokumentieren
 Private und Public richtig
-Json-Zeugs anpassen
-Formatieren
+Formatieren (Code Style)
 Sticker-Senden zulassen
 
 https://stackoverflow.com/questions/34355648/telegram-getting-file-id-for-existing-sticker
