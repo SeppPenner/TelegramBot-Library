@@ -1,8 +1,5 @@
 # TelegramBot Library
 
-
-A project by [Casa Jasmina](http://casajasmina.arduino.cc/)
-
 ## Introduction
 
 This library allows you to host a Telegram Bot on your Arduino, and interact with telegram bot API.

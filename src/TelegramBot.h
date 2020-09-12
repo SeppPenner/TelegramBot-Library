@@ -1,8 +1,9 @@
-// Copyright Casa Jasmina 2016
-// LGPL License
+// Copyright SeppPenner 2020
+// MIT License
 //
 // TelegramBot library
-// https://github.com/CasaJasmina/TelegramBot-Library
+// Based on https://github.com/CasaJasmina/TelegramBot-Library
+// https://github.com/SeppPenner/TelegramBot-Library
 
 #ifndef TelegramBot_h
 #define TelegramBot_h
@@ -23,28 +24,26 @@
 #endif
 #endif
 
-struct message{
+struct message {
   String text;
   String chat_id;
   String sender;
   String date;
 };
 
-class TelegramBot
-{
-  public:
-    TelegramBot(const char* token, Client &client);
-  	void begin();
-    String sendMessage(String chat_id, String text);
-    String sendMessage(String chat_id, String text, TelegramKeyboard &keyboard_markup, bool one_time_keyboard = true, bool resize_keyboard = true);
-    String postMessage(String msg);
-    message getUpdates();
+class TelegramBot {
+    public:
+        TelegramBot(const char* token, Client &client);
+        void begin();
+        String sendMessage(String chat_id, String text);
+        String sendMessage(String chat_id, String text, TelegramKeyboard &keyboard_markup, bool one_time_keyboard = true, bool resize_keyboard = true);
+        String postMessage(String msg);
+        message getUpdates();
 
   private:
       String readPayload();
       const char* token;
       int last_message_recived;
-
       Client *client;
 };
 

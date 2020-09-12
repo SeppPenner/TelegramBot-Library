@@ -1,9 +1,9 @@
-// Official
-// Copyright Casa Jasmina 2016
-// LGPL License
+// Copyright SeppPenner 2020
+// MIT License
 //
 // TelegramBot library
-// https://github.com/CasaJasmina/TelegramBot-Library
+// Based on https://github.com/CasaJasmina/TelegramBot-Library
+// https://github.com/SeppPenner/TelegramBot-Library
 
 #include "TelegramBot.h"
 
@@ -20,7 +20,7 @@ void TelegramBot::begin()	{
            Serial.println("Connection failed.");
 		}
         else{
-           Serial.println("Connected");
+           Serial.println("Connected.");
         }
 	}
 }
@@ -42,7 +42,7 @@ message TelegramBot::getUpdates()  {
 		String payload = readPayload();
 	    if (payload != "") {
 			message m;
-			StaticJsonBuffer<JSON_BUFF_SIZE> jsonBuffer;
+			StaticJsonDocument<JSON_BUFF_SIZE> jsonBuffer;
 			JsonObject & root = jsonBuffer.parseObject(payload);
 
 			if(root.success()){
@@ -88,7 +88,7 @@ message TelegramBot::getUpdates()  {
 // send a simple text message to a telegram char
 String TelegramBot::sendMessage(String chat_id, String text)  {
 	if(chat_id!="0" && chat_id!=""){
-		StaticJsonBuffer<JSON_BUFF_SIZE> jsonBuffer;
+		StaticJsonDocument<JSON_BUFF_SIZE> jsonBuffer;
 		JsonObject& buff = jsonBuffer.createObject();
 		buff["chat_id"] = chat_id;
 		buff["text"] = text;
@@ -103,7 +103,7 @@ String TelegramBot::sendMessage(String chat_id, String text)  {
 
 // send a message to a telegram chat with a reply markup
 String TelegramBot::sendMessage(String chat_id, String text, TelegramKeyboard &keyboard_markup, bool one_time_keyboard, bool resize_keyboard)  {
-		StaticJsonBuffer<JSON_BUFF_SIZE> jsonBuffer;
+		StaticJsonDocument<JSON_BUFF_SIZE> jsonBuffer;
 		JsonObject& buff = jsonBuffer.createObject();
 		buff["chat_id"] = chat_id;
 		buff["text"] = text;

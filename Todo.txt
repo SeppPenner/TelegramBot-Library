@@ -1,0 +1,6 @@
+Reamde anpassen
+Examples anpassne
+Lib hochladen auf Arduino?!
+Methoden dokumentieren
+Private und Public richtig
+Json-Zeugs anpassen

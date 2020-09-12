@@ -1,8 +1,9 @@
-// Copyright Casa Jasmina 2016
-// LGPL License
+// Copyright SeppPenner 2020
+// MIT License
 //
 // TelegramBot library
-// https://github.com/CasaJasmina/TelegramBot-Library
+// Based on https://github.com/CasaJasmina/TelegramBot-Library
+// https://github.com/SeppPenner/TelegramBot-Library
 
 #include "TelegramKeyboard.h"
 

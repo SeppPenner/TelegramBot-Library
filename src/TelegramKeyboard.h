@@ -1,8 +1,9 @@
-// Copyright Casa Jasmina 2016
-// LGPL License
+// Copyright SeppPenner 2020
+// MIT License
 //
 // TelegramBot library
-// https://github.com/CasaJasmina/TelegramBot-Library
+// Based on https://github.com/CasaJasmina/TelegramBot-Library
+// https://github.com/SeppPenner/TelegramBot-Library
 
 #ifndef TelegramKeyboard_h
 #define TelegramKeyboard_h
@@ -16,7 +17,6 @@ struct button {
 };
 
 class TelegramKeyboard
-
 {
     public:
         TelegramKeyboard();
@@ -27,7 +27,6 @@ class TelegramKeyboard
 
     private:
         int nrows = 0;
-
         button* rows[ROWS_LIMIT];
         int rows_length[ROWS_LIMIT];
 
