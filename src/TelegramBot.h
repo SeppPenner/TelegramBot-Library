@@ -10,7 +10,7 @@
 
 #include <Arduino.h>
 #include <ArduinoJson.h>
-#include <Client.h>
+#include <WifiClientSecure.h>
 #include <TelegramKeyboard.h>
 
 #define HOST "api.telegram.org"
@@ -33,7 +33,7 @@ struct message {
 
 class TelegramBot {
     public:
-        TelegramBot(const char* token, Client &client);
+        TelegramBot(const char* token, WifiClientSecure &client);
         void begin();
         String sendMessage(String chat_id, String text);
         String sendMessage(String chat_id, String text, TelegramKeyboard &keyboard_markup, bool one_time_keyboard = true, bool resize_keyboard = true);
@@ -44,7 +44,7 @@ class TelegramBot {
       String readPayload();
       const char* token;
       int last_message_recived;
-      Client *client;
+      WifiClientSecure *client;
 };
 
 #endif
