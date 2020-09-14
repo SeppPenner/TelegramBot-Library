@@ -1,9 +1,5 @@
 Reamde anpassen
-Examples anpassne
+Examples anpassen
 Lib hochladen auf Arduino?!
-Methoden dokumentieren
-Private und Public richtig
-Formatieren (Code Style)
-Sticker-Senden zulassen
 
 https://stackoverflow.com/questions/34355648/telegram-getting-file-id-for-existing-sticker

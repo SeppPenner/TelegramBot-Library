@@ -7,28 +7,27 @@
 
 #ifndef TelegramKeyboard_h
 #define TelegramKeyboard_h
+#define ROWSLIMIT 10
+
 #include <Arduino.h>
 
-#define ROWS_LIMIT 10
-
-struct button {
+struct Button {
     const char* text;
-    button* next;
+    Button* next;
 };
 
-class TelegramKeyboard
-{
+class TelegramKeyboard {
     public:
         TelegramKeyboard();
-        void addRow(const char* row[], int length);
+        void addRows(const char* rows[], int length);
         String getButton(int nrow, int button);
         int length();
         int rowSize(int nrow);
 
     private:
-        int nrows = 0;
-        button* rows[ROWS_LIMIT];
-        int rows_length[ROWS_LIMIT];
+        int numberOfRows = 0;
+        Button* rows[ROWSLIMIT];
+        int lengthOfRows[ROWSLIMIT];
 
 };
 #endif

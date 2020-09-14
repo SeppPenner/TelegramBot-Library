@@ -14,37 +14,40 @@
 #include <TelegramKeyboard.h>
 
 #define HOST "api.telegram.org"
-#define SSL_PORT 443
+#define SSLPORT 443
 
-#ifndef JSON_BUFF_SIZE
+#ifndef JSONBUFFERSIZE
 #ifdef ESP8266
-#define JSON_BUFF_SIZE 1000
+#define JSONBUFFERSIZE 1000
 #else
-#define JSON_BUFF_SIZE 10000
+#define JSONBUFFERSIZE 10000
 #endif
 #endif
 
-struct message {
-  String text;
-  String chat_id;
-  String sender;
-  String date;
+struct Message {
+    String text;
+    String chatId;
+    String sender;
+    String date;
 };
 
 class TelegramBot {
     public:
         TelegramBot(const char* token, WifiClientSecure &client);
         void begin();
-        String sendMessage(String chat_id, String text);
-        String sendMessage(String chat_id, String text, TelegramKeyboard &keyboard_markup, bool one_time_keyboard = true, bool resize_keyboard = true);
-        String postMessage(String msg);
-        message getUpdates();
+        Message getUpdates();
+        String sendMessage(String chatId, String text);
+        String sendMessage(String chatId, String text, TelegramKeyboard &keyboardMarkup, bool oneTimeKeyboard = true, bool resizeKeyboard = true);
+        String sendSticker(String chatId, String sticker);
 
-  private:
-      String readPayload();
-      const char* token;
-      int last_message_recived;
-      WifiClientSecure *client;
+    private:
+        const char* token;
+        int lastMessageReceived;
+        WifiClientSecure* client;
+        String postMessage(String message);
+        String postSticker(String sticker);
+        String readPayload();
+        void setDefaultHeaders();
 };
 
 #endif

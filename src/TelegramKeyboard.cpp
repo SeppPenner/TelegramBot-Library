@@ -7,50 +7,77 @@
 
 #include "TelegramKeyboard.h"
 
-TelegramKeyboard::TelegramKeyboard(){
-}
+/**
+    The constructor of the Telegram keyboard class.
+    @return A new instance of the Telegram keyboard.
+*/
+TelegramKeyboard::TelegramKeyboard() {}
 
-void TelegramKeyboard::addRow(const char* row[], int length){
-    button* first;
-    first->next = NULL;
+/**
+    Adds new rows.
+    @param rows The rows.
+    @param length The row length.
+    @return Nothing.
+*/
+void TelegramKeyboard::addRows(const char* rows[], int length) {
+    Button* first;
+    first -> next = NULL;
 
-    rows_length[nrows] = length;
+    lengthOfRows[numberOfRows] = length;
 
-    for (int i = length-1 ; i >= 0; i--) {
-        button* temp;
-        temp = new button;
-        temp->text = row[i];
-        temp->next = first;
+    for (int i = length - 1; i >= 0; i--) {
+        Button* temp;
+        temp = new Button;
+        temp -> text = rows[i];
+        temp -> next = first;
         first = temp;
     }
 
-    rows[nrows] = first;
-    nrows++;
+    rows[numberOfRows] = first;
+    numberOfRows++;
 }
 
-String TelegramKeyboard::getButton(int nrow, int nbutton){
-    if (nrow < 1 || nbutton < 1) {
-        return "error";
+/**
+    Gets the button from the keyboard.
+    @param rowNumber The row number.
+    @param buttonNumber The button number.
+    @return The button as String.
+*/
+String TelegramKeyboard::getButton(int rowNumber, int buttonNumber) {
+    if (rowNumber < 1) {
+        return "Row number is less than 1.";
     }
 
-    button* first;
-    first  = rows[nrow-1];
+    if (buttonNumber < 1) {
+        return "Button number is less than 1.";
+    }
 
-    for (int i = 0; i < nbutton-1 ; i++){
-        first = first->next;
+    Button* first;
+    first = rows[rowNumber - 1];
+
+    for (int i = 0; i < buttonNumber - 1; i++) {
+        first = first -> next;
     }
 
     if (first == NULL) {
-        return "overflow";
+        return "Overflow.";
     }
 
-    return first->text;
+    return first -> text;
 }
 
-int TelegramKeyboard::length(){
-    return nrows;
+/**
+    Gets the number of the rows.
+    @return The number of rows as int.
+*/
+int TelegramKeyboard::length() {
+    return numberOfRows;
 }
 
-int TelegramKeyboard::rowSize(int nrow){
-    return rows_length[nrow - 1];
+/**
+    Gets the row size.
+    @return The row size as int.
+*/
+int TelegramKeyboard::rowSize(int nrow) {
+    return lengthOfRows[nrow - 1];
 }
